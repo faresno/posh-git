@@ -49,6 +49,8 @@ $global:GitPromptSettings = New-Object PSObject -Property @{
 
     EnableWindowTitle         = 'posh~git ~ '
 
+    GitPromptMaxPathLength    = 0  #defaults to no truncation
+
     Debug                     = $false
 }
 

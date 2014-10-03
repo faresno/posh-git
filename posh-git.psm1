@@ -34,6 +34,8 @@ Export-ModuleMember `
         'Add-SshKey',
         'Get-SshPath',
         'Update-AllBranches',
-        'tgit')
+        'tgit',
+        'Set-GitPromptLength',
+        'Write-TruncatedPath')
 
 

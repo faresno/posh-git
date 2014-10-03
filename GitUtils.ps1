@@ -215,6 +215,21 @@ function Get-AliasPattern($exe) {
    "($($aliases -join '|'))"
 }
 
+function Set-GitPromptLength($len=0) {
+    $global:GitPromptMaxPathLength = $len
+}
+
+function Write-TruncatedPath($path){
+    if ($path.Length -gt $global:GitPromptMaxPathLength -and $global:GitPromptMaxPathLength -gt 0)
+    {
+        Write-Host "...$($path.Substring($path.Length-$global:GitPromptMaxPathLength)) " -nonewline
+    }
+    else
+    {
+        Write-Host "$($pwd.ProviderPath) " -nonewline
+    }
+}
+
 function setenv($key, $value) {
     [void][Environment]::SetEnvironmentVariable($key, $value, [EnvironmentVariableTarget]::Process)
     Set-TempEnv $key $value
